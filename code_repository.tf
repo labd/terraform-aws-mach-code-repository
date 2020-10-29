@@ -1,6 +1,6 @@
 // This is the primary bucket
 resource "aws_s3_bucket" "code_repository" {
-  bucket = var.code_repo_name
+  bucket = var.name
   acl    = "private"
 
   versioning {
@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "s3_code_repository" {
     actions = ["s3:GetObject", "s3:PutObject"]
 
     resources = [
-      "arn:aws:s3:::${var.code_repo_name}/*",
+      "arn:aws:s3:::${var.name}/*",
     ]
   }
 }
