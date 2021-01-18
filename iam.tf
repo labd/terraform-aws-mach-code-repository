@@ -12,7 +12,8 @@ data "aws_iam_policy_document" "upload_lambda_document" {
 }
 
 resource "aws_iam_role_policy" "upload_lambda_policy" {
-  name   = "upload-lambda-policy"
-  role   = var.deploy_principle_identifier
-  policy = data.aws_iam_policy_document.upload_lambda_document.json
+  for_each = toset(var.deploy_principle_identifiers)
+  name     = "upload-lambda-policy"
+  role     = each.value
+  policy   = data.aws_iam_policy_document.upload_lambda_document.json
 }

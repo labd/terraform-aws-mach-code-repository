@@ -3,13 +3,13 @@ variable "name" {
 }
 
 variable "access_principle_identifiers" {
-  type = list
+  type = list(string)
   description = "List of user or role ARNs that should be able to access the code repository"
 }
 
-variable "deploy_principle_identifier" {
-  type = string
-  description = "A user or role ARN that should be able to upload to the code repository"
+variable "deploy_principle_identifiers" {
+  type = list(string)
+  description = "List of user or role ARNs that should be able to upload to the code repository"
 }
 
 variable "noncurrent_version_expiration" {
