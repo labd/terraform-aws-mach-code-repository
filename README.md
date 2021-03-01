@@ -6,7 +6,7 @@ Module to set up a S3 Bucket which can serve as lambda code repository
 
 ```
 module "coderepository" {
-  source = "git::https://github.com/labd/terraform-aws-code-repository.git"
+  source = "git::https://github.com/labd/terraform-aws-mach-code-repository.git"
   name   = "your-project-lambdas"
 
   access_principle_identifiers = [
